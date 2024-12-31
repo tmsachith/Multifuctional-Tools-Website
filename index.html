@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Toolbox</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Colorful Toolbox</h1>
+    </header>
+
+    <nav id="tool-selector">
+        <button class="tool-button" data-tool="calculator">Calculator</button>
+        <button class="tool-button" data-tool="todo-list">To-Do List</button>
+        <button class="tool-button" data-tool="countdown-timer">Countdown Timer</button>
+        <button class="tool-button" data-tool="unit-converter">Unit Converter</button>
+        <button class="tool-button" data-tool="password-generator">Password Generator</button>
+        <button class="tool-button" data-tool="bmi-calculator">BMI Calculator</button>
+    </nav>
+
+    <main id="tool-container">
+        <section id="calculator" class="tool">
+            <h2>Calculator</h2>
+            <div class="calculator">
+                <input type="text" id="display" readonly>
+                <div class="buttons">
+                    <button onclick="appendToDisplay('7')">7</button>
+                    <button onclick="appendToDisplay('8')">8</button>
+                    <button onclick="appendToDisplay('9')">9</button>
+                    <button onclick="appendToDisplay('+')">+</button>
+                    <button onclick="appendToDisplay('4')">4</button>
+                    <button onclick="appendToDisplay('5')">5</button>
+                    <button onclick="appendToDisplay('6')">6</button>
+                    <button onclick="appendToDisplay('-')">-</button>
+                    <button onclick="appendToDisplay('1')">1</button>
+                    <button onclick="appendToDisplay('2')">2</button>
+                    <button onclick="appendToDisplay('3')">3</button>
+                    <button onclick="appendToDisplay('*')">*</button>
+                    <button onclick="appendToDisplay('0')">0</button>
+                    <button onclick="appendToDisplay('.')">.</button>
+                    <button onclick="calculate()">=</button>
+                    <button onclick="appendToDisplay('/')">/</button>
+                    <button onclick="clearDisplay()">C</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="todo-list" class="tool">
+            <h2>To-Do List</h2>
+            <div class="todo-container">
+                <input type="text" id="todo-input" placeholder="Enter a new task">
+                <button onclick="addTodo()">Add Task</button>
+                <ul id="todo-items"></ul>
+            </div>
+        </section>
+
+        <section id="countdown-timer" class="tool">
+            <h2>Countdown Timer</h2>
+            <div class="timer-container">
+                <input type="number" id="minutes" placeholder="Minutes" min="0">
+                <input type="number" id="seconds" placeholder="Seconds" min="0" max="59">
+                <button onclick="startTimer()">Start</button>
+                <button onclick="stopTimer()">Stop</button>
+                <div id="timer-display">00:00</div>
+            </div>
+        </section>
+
+        <section id="unit-converter" class="tool">
+            <h2>Unit Converter</h2>
+            <div class="converter-container">
+                <select id="conversion-type">
+                    <option value="length">Length</option>
+                    <option value="weight">Weight</option>
+                    <option value="temperature">Temperature</option>
+                </select>
+                <input type="number" id="from-value" placeholder="From">
+                <select id="from-unit"></select>
+                <input type="number" id="to-value" placeholder="To" readonly>
+                <select id="to-unit"></select>
+                <button onclick="convert()">Convert</button>
+            </div>
+        </section>
+
+        <section id="password-generator" class="tool">
+            <h2>Random Password Generator</h2>
+            <div class="password-generator-container">
+                <div class="options">
+                    <label>
+                        <input type="checkbox" id="uppercase" checked> Uppercase
+                    </label>
+                    <label>
+                        <input type="checkbox" id="lowercase" checked> Lowercase
+                    </label>
+                    <label>
+                        <input type="checkbox" id="numbers" checked> Numbers
+                    </label>
+                    <label>
+                        <input type="checkbox" id="symbols"> Symbols
+                    </label>
+                </div>
+                <div class="length-container">
+                    <label for="password-length">Password Length:</label>
+                    <input type="number" id="password-length" min="8" max="128" value="12">
+                </div>
+                <button onclick="generatePassword()">Generate Password</button>
+                <input type="text" id="password-output" readonly>
+                <button onclick="copyPassword()">Copy Password</button>
+            </div>
+        </section>
+
+        <section id="bmi-calculator" class="tool">
+            <h2>BMI Calculator</h2>
+            <div class="bmi-calculator-container">
+                <div class="input-group">
+                    <label for="height">Height:</label>
+                    <input type="number" id="height" placeholder="cm">
+                </div>
+                <div class="input-group">
+                    <label for="weight">Weight:</label>
+                    <input type="number" id="weight" placeholder="kg">
+                </div>
+                <button onclick="calculateBMI()">Calculate BMI</button>
+                <div id="bmi-result" class="result-display"></div>
+                <div id="bmi-category" class="category-display"></div>
+            </div>
+        </section>
+
+        <!-- Add more sections for other tools -->
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Multifunctional Toolbox. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
